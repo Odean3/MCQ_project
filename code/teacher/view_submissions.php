@@ -78,7 +78,7 @@ if ($current_test_id > 0) {
     </style>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<?php include 'header_teach.php'; ?>
 
     <div class="container">
         <h1>Student Submissions</h1>

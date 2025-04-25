@@ -21,7 +21,7 @@ session_start();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                     </li>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li class="nav-item">

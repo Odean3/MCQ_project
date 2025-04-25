@@ -27,7 +27,7 @@ $stmt->close();
     <title>Teacher Dashboard</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'header_teach.php'; ?>
 
     <div class="container">
         <h1 class="mb-3">Welcome, Teacher <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>

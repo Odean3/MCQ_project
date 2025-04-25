@@ -83,7 +83,7 @@ if (isset($_GET['test_id'])) {
     <title>Create Test</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<?php include 'header_teach.php'; ?>
 
     <div class="container">
         <h1>Create Test</h1>
