@@ -166,6 +166,6 @@ if (isset($_GET['test_id'])) {
         <?php endif; ?>
     </div>
 
-    <?php include '../footer.php'; ?>
+    <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

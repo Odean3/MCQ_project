@@ -24,23 +24,23 @@ $tests = $result->fetch_all(MYSQLI_ASSOC);
     <?php include 'header.php'; ?>
 
     <div class="container">
-        <h1>Welcome, Student <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+        <h1 class="mb-3">Welcome, Student <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
 
         <h2>Available Tests</h2>
         <?php if (empty($tests)): ?>
-            <p>No tests available at the moment.</p>
+            <p>No tests found</p>
         <?php else: ?>
-            <ul>
+            <ul class="list-group">
                 <?php foreach ($tests as $test): ?>
-                    <li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <strong><?php echo htmlspecialchars($test['test_name']); ?></strong>
-                        <a href="take_test.php?test_id=<?php echo $test['id']; ?>">Take Test</a>
+                        <a href="take_test.php?test_id=<?php echo $test['id']; ?>" class="btn btn-primary btn-sm">Take Test</a>
                     </li>
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
     </div>
 
-    <?php include '../footer.php'; ?>
+    <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

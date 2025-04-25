@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <?php include 'header.php'; ?>
@@ -105,5 +105,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
         <p>Already have an account? <a href="login.php">Login here</a>.</p>
     </div>
+    <?php include __DIR__ . '/includes/footer.php'; ?>
 </body>
 </html>

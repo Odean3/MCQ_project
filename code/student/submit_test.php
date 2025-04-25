@@ -33,9 +33,5 @@ foreach ($answers as $question_id => $selected_option) {
 $_SESSION['message'] = "Test submitted successfully!";
 header('Location: student_dashboard.php');
 exit();
-
-
-
-
-
 ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>

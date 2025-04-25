@@ -1,5 +1,4 @@
 <?php
-session_start();
 require '../includes/config.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'teacher') {
@@ -131,6 +130,6 @@ if ($current_test_id > 0) {
         <?php endif; ?>
     </div>
 
-    <?php include '../includes/footer.php'; ?>
+    <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

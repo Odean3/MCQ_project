@@ -30,25 +30,25 @@ $stmt->close();
     <?php include 'header.php'; ?>
 
     <div class="container">
-        <h1>Welcome, Teacher <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+        <h1 class="mb-3">Welcome, Teacher <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
 
         <h2>Your Tests</h2>
         <?php if (empty($tests)): ?>
             <p>No tests found</p>
         <?php else: ?>
-            <ul>
+            <ul class="list-group mb-3">
                 <?php foreach ($tests as $test): ?>
-                    <li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         <strong><?php echo htmlspecialchars($test['test_name']); ?></strong>
-                        <a href="view_submissions.php"; ?>View & grade Submissions</a>
+                        <a href="view_submissions.php?test_id=<?php echo $test['id']; ?>" class="btn btn-info btn-sm">View & Grade Submissions</a>
                     </li>
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
 
-        <p><a href="create_test.php">Create a New Test</a></p>
+        <p><a href="create_test.php" class="btn btn-primary">Create a New Test</a></p>
     </div>
 
-    <?php include '../footer.php'; ?>
+    <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

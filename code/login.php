@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 
 </head>
@@ -92,9 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <p>Don't have an account? <a href="register.php">Register here</a>.</p>
     </div>
-                
-            
 
-    <?php include 'footer.php'; ?>
+    <?php include __DIR__ . '/includes/footer.php'; ?>
 </body>
 </html>

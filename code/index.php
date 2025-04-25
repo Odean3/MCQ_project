@@ -14,7 +14,7 @@ $role = $logged_in ? $_SESSION['role'] : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCQ Project - Home</title>
-    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <?php include 'header.php'; ?>
@@ -38,6 +38,6 @@ $role = $logged_in ? $_SESSION['role'] : '';
         <?php endif; ?>
     </div>
 
-    <?php include 'footer.php'; ?>
+    <?php include __DIR__ . '/includes/footer.php'; ?>
 </body>
 </html>
