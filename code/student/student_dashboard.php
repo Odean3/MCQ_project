@@ -21,7 +21,7 @@ $tests = $result->fetch_all(MYSQLI_ASSOC);
     <title>Student Dashboard</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'header_stud.php'; ?>
 
     <div class="container">
         <h1 class="mb-3">Welcome, Student <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>

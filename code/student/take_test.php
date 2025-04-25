@@ -27,7 +27,7 @@ $stmt->close();
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<?php include 'header_stud.php'; ?>
 
     <div class="container">
         <h1>Take Test</h1>
