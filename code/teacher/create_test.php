@@ -86,7 +86,10 @@ if (isset($_GET['test_id'])) {
 <?php include 'header_teach.php'; ?>
 
     <div class="container">
+    <a href="teacher_dashboard.php" class="btn btn-outline-secondary">Back to Dashboard</a>
+
         <h1>Create Test</h1>
+
 
         <?php if (!empty($errors)): ?>
             <div class="errors">
@@ -107,6 +110,7 @@ if (isset($_GET['test_id'])) {
                 </div>
             </form>
         <?php else: ?>
+            
             <h2>Add Questions to Test</h2>
             <form action="create_test.php" method="POST">
                 <input type="hidden" name="test_id" value="<?php echo $_GET['test_id']; ?>">
@@ -141,9 +145,10 @@ if (isset($_GET['test_id'])) {
                 </div>
                 <div>
                     <button type="submit" name="add_question">Add Question</button>
+
                 </div>
             </form>
-
+           
             <h2>Existing Questions</h2>
             <?php if (empty($questions)): ?>
                 <p>No questions added yet.</p>
