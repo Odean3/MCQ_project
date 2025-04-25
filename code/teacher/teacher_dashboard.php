@@ -40,7 +40,7 @@ $stmt->close();
                 <?php foreach ($tests as $test): ?>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <strong><?php echo htmlspecialchars($test['test_name']); ?></strong>
-                        <a href="view_submissions.php?test_id=<?php echo $test['id']; ?>" class="btn btn-info btn-sm">View & Grade Submissions</a>
+                        <a href="view_submissions.php" class="btn btn-info btn-sm">View & Grade Submissions</a>
                     </li>
                 <?php endforeach; ?>
             </ul>
