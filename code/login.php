@@ -75,21 +75,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         <?php endif; ?>
 
-        <!-- Login form -->
-        <form action="login.php" method="POST">
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($username); ?>" required>
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" required>
-            </div>
-            <div>
-                <button type="submit">Login</button>
-            </div>
-        </form>
-
+       <div class="login-form">
+            <!-- Login form -->
+            <form action="login.php" method="POST">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($username); ?>" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+       </div>
+       
         <p>Don't have an account? <a href="register.php">Register here</a>.</p>
     </div>
 
