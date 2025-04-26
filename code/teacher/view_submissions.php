@@ -68,31 +68,25 @@ if ($current_test_id > 0) {
 <html>
 <head>
     <title>View Submissions</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .submission { margin: 15px 0; padding: 15px; border: 1px solid #ddd; }
-        .grade-form { display: inline-block; margin-left: 20px; }
-        .grade-input { width: 50px; }
-        .correct { color: green; }
-        .incorrect { color: red; }
-    </style>
+    <link rel="stylesheet" href="../css/style.css"> <!-- Corrected path to the main stylesheet -->
+    <!-- The inline styles will be moved to style.css -->
 </head>
 <body>
 <?php include 'header_teach.php'; ?>
 
-    <div class="container">
-        <h1>Student Submissions</h1>
+    <div class="container mt-4"> <!-- Added Bootstrap margin top for consistency -->
+        <h1 class="mb-3">Student Submissions</h1> <!-- Added Bootstrap margin bottom for consistency -->
         
         <?php if (isset($_SESSION['message'])): ?>
             <div class="message"><?php echo $_SESSION['message']; unset($_SESSION['message']); ?></div>
         <?php endif; ?>
 
-        <form method="get">
-            <label for="test_id">Select Test:</label>
-            <select name="test_id" id="test_id" onchange="this.form.submit()">
+        <form method="get" class="mb-3"> <!-- Added Bootstrap margin-bottom class -->
+            <label for="test_id" class="form-label">Select Test:</label> <!-- Added Bootstrap form-label class -->
+            <select name="test_id" id="test_id" class="form-select" onchange="this.form.submit()"> <!-- Added Bootstrap form-select class -->
                 <option value="">-- Select Test --</option>
                 <?php foreach ($tests as $test): ?>
-                    <option value="<?php echo $test['id']; ?>" 
+                    <option value="<?php echo $test['id']; ?>"
                         <?php if ($test['id'] == $current_test_id) echo 'selected'; ?>>
                         <?php echo htmlspecialchars($test['test_name']); ?>
                     </option>
@@ -101,7 +95,7 @@ if ($current_test_id > 0) {
         </form>
 
         <?php if ($current_test_id > 0): ?>
-            <h2>Submissions</h2>
+            <h2 class="submissions-heading mt-4">Submissions</h2> <!-- Added custom class and Bootstrap margin-top class -->
             <?php if (empty($submissions)): ?>
                 <p>No submissions yet for this test.</p>
             <?php else: ?>

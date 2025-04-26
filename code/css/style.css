@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header, .footer {
-    background-color: #f0f8ff; 
+    background-color: #f0f8ff;
     padding: 10px;
     text-align: center;
     width: 100%;
@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #add8e6; /* Light Blue */
     border-radius: 8px;
     padding: 30px;
-    margin: 20px;
+    margin: 20px auto; /* Center the container horizontally */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 600px;
@@ -48,3 +48,9 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
+/* Styles for view_submissions.php */
+.submission { margin: 15px 0; padding: 15px; border: 1px solid #ddd; }
+.grade-form { display: inline-block; margin-left: 20px; }
+.grade-input { width: 50px; }
+.correct { color: green; }
+.incorrect { color: red; }
