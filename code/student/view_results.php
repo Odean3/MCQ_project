@@ -82,36 +82,8 @@ foreach ($questions as $q) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Results</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .question-card {
-            margin-bottom: 20px;
-            border-left: 4px solid #dee2e6;
-        }
-        .correct {
-            border-left-color: #28a745;
-            background-color: rgba(40, 167, 69, 0.05);
-        }
-        .incorrect {
-            border-left-color: #dc3545;
-            background-color: rgba(220, 53, 69, 0.05);
-        }
-        .option {
-            padding: 5px 10px;
-            margin: 3px 0;
-            border-radius: 4px;
-        }
-        .correct-answer {
-            background-color: #d4edda;
-            font-weight: bold;
-        }
-        .your-answer {
-            background-color: #f8d7da;
-        }
-        .score-card {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style.css"/>
+
 </head>
 <body>
     <?php include 'header_stud.php'; ?>
