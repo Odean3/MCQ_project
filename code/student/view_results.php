@@ -80,10 +80,10 @@ foreach ($questions as $q) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Results</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css"/>
-
+    <title>Test Results</title>
+    
 </head>
 <body>
     <?php include 'header_stud.php'; ?>
@@ -93,65 +93,66 @@ foreach ($questions as $q) {
             <h1>Test Results: <?php echo htmlspecialchars($test['name']); ?></h1>
             <a href="student_dashboard.php" class="btn btn-outline-secondary">Back to Dashboard</a>
         </div>
+        <section class="mb-4">
+            <!-- Overall Score Card -->
+            <div class="card score-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="mb-0"><?php echo isset($grade['score']) ? $grade['score'] : 0; ?>%</h3>
+                            <p class="text-muted">Overall Score</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="mb-0"><?php echo $correct_answers; ?>/<?php echo $total_questions; ?></h3>
+                            <p class="text-muted">Correct Answers</p>
+                        </div>
+                        <div class="col-md-4">
+                            <?php if (isset($grade['feedback']) && !empty($grade['feedback'])): ?>
+                                <p><strong>Teacher Feedback:</strong> <?php echo htmlspecialchars($grade['feedback']); ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Overall Score Card -->
-        <div class="card score-card mb-4">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="mb-0"><?php echo isset($grade['score']) ? $grade['score'] : 0; ?>%</h3>
-                        <p class="text-muted">Overall Score</p>
-                    </div>
-                    <div class="col-md-4">
-                        <h3 class="mb-0"><?php echo $correct_answers; ?>/<?php echo $total_questions; ?></h3>
-                        <p class="text-muted">Correct Answers</p>
-                    </div>
-                    <div class="col-md-4">
-                        <?php if (isset($grade['feedback']) && !empty($grade['feedback'])): ?>
-                            <p><strong>Teacher Feedback:</strong> <?php echo htmlspecialchars($grade['feedback']); ?></p>
+        <section>
+            <h2 class="mb-3">Question Details</h2>
+            <?php foreach ($questions as $index => $q): ?>
+                <div class="card question-card <?php echo (isset($q['selected_option']) && $q['selected_option'] == $q['correct_option']) ? 'correct' : 'incorrect'; ?>">
+                    <div class="card-body">
+                        <h5 class="card-title">Question <?php echo $index + 1; ?></h5>
+                        <p class="card-text"><?php echo htmlspecialchars($q['question_text']); ?></p>
+                        <ul class="options">
+                            <?php for ($i = 1; $i <= 4; $i++): ?>
+                                <?php 
+                                $option = 'option' . $i;
+                                $is_correct = ($i == $q['correct_option']);
+                                $is_your_answer = (isset($q['selected_option']) && $q['selected_option'] == $i);
+                                $classes = '';
+                                if ($is_correct) $classes .= ' correct-answer';
+                                if ($is_your_answer && !$is_correct) $classes .= ' your-answer';
+                                ?>
+                                <li class="<?php echo $classes; ?>">
+                                    <span class="option-number"><?php echo $i ?>.</span>
+                                    <span class="option-text"><?php echo htmlspecialchars($q[$option]); ?></span>
+                                    <?php if ($is_correct): ?>
+                                        <span class="badge bg-success float-end">Correct Answer</span>
+                                    <?php elseif ($is_your_answer): ?>
+                                        <span class="badge bg-danger float-end">Your Answer</span>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endfor; ?>
+                        </ul>
+                        <?php if (isset($q['selected_option']) && $q['selected_option'] != $q['correct_option']): ?>
+                            <div class="alert alert-warning mt-3">
+                                <strong>Explanation:</strong> The correct answer was option <?php echo $q['correct_option']; ?>
+                            </div>
                         <?php endif; ?>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Question-by-Question Results -->
-        <h2 class="mb-3">Question Details</h2>
-        <?php foreach ($questions as $index => $q): ?>
-            <div class="card question-card <?php echo (isset($q['selected_option']) && $q['selected_option'] == $q['correct_option']) ? 'correct' : 'incorrect'; ?>">
-                <div class="card-body">
-                    <h5 class="card-title">Question <?php echo $index + 1; ?></h5>
-                    <p class="card-text"><?php echo htmlspecialchars($q['question_text']); ?></p>
-                    
-                    <div class="options">
-                        <?php for ($i = 1; $i <= 4; $i++): ?>
-                            <?php 
-                            $option = 'option' . $i;
-                            $is_correct = ($i == $q['correct_option']);
-                            $is_your_answer = (isset($q['selected_option']) && $q['selected_option'] == $i);
-                            $classes = 'option';
-                            if ($is_correct) $classes .= ' correct-answer';
-                            if ($is_your_answer && !$is_correct) $classes .= ' your-answer';
-                            ?>
-                            <div class="<?php echo $classes; ?>">
-                                <?php echo htmlspecialchars($q[$option]); ?>
-                                <?php if ($is_correct): ?>
-                                    <span class="badge bg-success float-end">Correct Answer</span>
-                                <?php elseif ($is_your_answer): ?>
-                                    <span class="badge bg-danger float-end">Your Answer</span>
-                                <?php endif; ?>
-                            </div>
-                        <?php endfor; ?>
-                    </div>
-                    
-                    <?php if (isset($q['selected_option']) && $q['selected_option'] != $q['correct_option']): ?>
-                        <div class="alert alert-warning mt-3">
-                            <strong>Explanation:</strong> The correct answer was option <?php echo $q['correct_option']; ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </section>
     </div>
 
     <?php include '../includes/footer.php'; ?>

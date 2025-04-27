@@ -64,8 +64,19 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(220, 53, 69, 0.05);
 }
 
-.option { padding: 5px 10px; margin: 3px 0; border-radius: 4px; }
+.option-text { padding: 5px 10px; margin: 3px 0; border-radius: 4px; }
 
+
+/* Styles for view_results.php */
+.options {
+    list-style: none;
+    padding: 0;
+}
+.options li {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
 
 /* Styles for view_submissions.php */
 .submission { margin: 15px 0; padding: 15px; border: 1px solid #ddd; }
